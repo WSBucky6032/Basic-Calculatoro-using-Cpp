@@ -31,34 +31,59 @@ int sq(int a){
     return c;
 }
 
+
 int main()
 {
     float num1, num2;
     int choice;
+    do
+    {
+    
 
         cout<<"1. Addition\n";
         cout<<"2. Subtraction\n";
         cout<<"3. Multiplication\n";
         cout<<"4. Division\n";
         cout<<"5. Square\n\n";
-        cout<<"Enter Your Choice(1,2,3,4 or 5): ";
-        cin>>choice;
+        cout<<"Enter Your Choice: ";
+         while(!(cin >> choice)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid choice, try again:-\n";
+           
+        }
+        
         if(choice>=1 && choice<=4)
         {
         cout<<"Enter first number:- "<<endl;
-        cin>>num1;
+        while(!(cin >> num1)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid number, try again:-\n";
+        }
+
         cout<<"Enter second number:- "<<endl;
-        cin>>num2;
+        while(!(cin >> num2)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid number, try again:-\n";
+        }
         }
         else if (choice==5)
         {
             cout<<"Enter one Number:- ";
-            cin>>num1;
+            while(!(cin >> num1)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid number, try again:-\n";
+        }
         }
         else{
-            cout<<"Invalid Choice!!";
+            cout<<"Invalid Choice!!, please eneter a valid option\n";
         
         }
+    } while (choice>5);
+    
         switch(choice)
         {
             case 1:
@@ -77,7 +102,7 @@ int main()
             case 5:
             cout<<"The Square of entered numbers is "<<sq(num1);
                 break;
-                
+
             default:
                 cout<<"\nInvalid Choice!";
                 break;
